@@ -42,11 +42,14 @@ export class Notification {
   public get category(): string {
     return this.props.category;
   }
-  public set readAt(readAt: Date | null | undefined) {
-    this.props.readAt = readAt;
+  public read() {
+    this.props.readAt = new Date();
   }
-  public get readAt(): Date | null | undefined {
+  public get readAt(): Date | null {
     return this.props.readAt;
+  }
+  public unread() {
+    this.props.readAt = null;
   }
   public cancel() {
     return (this.props.cancelledAt = new Date());
