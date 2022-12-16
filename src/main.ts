@@ -1,3 +1,4 @@
+import { KafkaConsumerService } from '@infra/messaging/kafka/kafka-consumer.service';
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { MicroserviceOptions } from '@nestjs/microservices/interfaces';
@@ -8,7 +9,7 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ValidationPipe());
 
-  const kafkaConsumerService = app.get('KafkaConsumerService');
+  const kafkaConsumerService = app.get(KafkaConsumerService);
 
   app.connectMicroservice<MicroserviceOptions>({
     strategy: kafkaConsumerService,
