@@ -57,6 +57,9 @@ export class Notification {
   public cancel() {
     return (this.props.cancelledAt = new Date());
   }
+  public get cancelledAt(): Date | null {
+    return this.props.cancelledAt;
+  }
   public set createdAt(createdAt: Date | null) {
     this.props.createdAt = createdAt;
   }

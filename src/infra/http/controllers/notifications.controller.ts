@@ -38,7 +38,7 @@ export class NotificationsController {
     });
     return {
       notifications: notifications.map((notification) =>
-        NotificationViewModel.toHTTP(notification),
+        NotificationViewModel.toHTTPList(notification),
       ),
     };
   }
